@@ -1,0 +1,32 @@
+************************************************************** PROYECTO FINAL ***********************************************************************
+***************************************************************** README ****************************************************************************
+********************************************************** Modelado y Programación ******************************************************************
+******************************************************* Albert Manuel Orozco Camacho ****************************************************************
+
+Este proyecto consiste en implementar el esquema de secreto compartido de Shamir. Para ello, se implementaron en java, dos clases (Shamir.java y Zp.java).
+
+En Zp, se implementan los métodos que tienen que ver con polinomios en un campo finito ("Zp"). En éstos se incluyen, la evaluación y creación de polinomios de grado t-1 a partir de un término independiente (K) y el método que crea un polinomio a partir de la interpolación de Lagrange y devuelve su evaluación (f(x)).
+
+En Shamir, se implementan los métodos que tienen que ver con el cifrado y descifrado del archivo claro. De igual manera, esta clase se encarga de leer, guardar y evaluar el contenido de los archivos requeridos.
+
+El método "main" está incluido en la clase Shamir, por lo que se debe ejecutar usando los siguientes parámetros:
+
+Ecriptar:
+
+-c			Indica que el programa va al modo de encriptación
+-clear  [archivo]	Indica el nombre del archivo claro
+-n      [entero]	Indica el número de evaluaciones del polinomio
+-t      [entero <= n]	Indica el mínimo de personas requeridas para descifrar el archivo que va a cifrarse 
+-evalcr [archivo]	Indica el nombre del archivo donde se guardarán las n evaluaciones del polinomio (archivo 'fragmentado')
+
+Decriptar:
+
+-d			Indica que el programa va al modo de decriptación
+-crypted [archivo]	Indica el nombre del archivo encriptado (i.e. archivo.aes)
+-evaldec [archivo]	Indica el nombre del archivo 'fragmentado'
+
+Obsérvese que el programa correrá sin errores al omitir el paso de los parámetros -evalcr y -evaldec. En este caso, el programa asume que dichos archivos existen y el nombre de ambos archivos es "evaluations.frg".
+
+Finalmente, debe ser ejecutado de la siguiente manera:
+$ cd bin
+$ java Shamir [argumentos]
